@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>interiordesigners.lk · discover premium interior designers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- RESET & GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #faf9f7;
+      color: #1e1e1e;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 2rem;
+      /* offset for fixed header */
+      padding-top: 92px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 0 1.25rem;
+        padding-top: 84px;
+      }
+    }
+
+    h1, h2, h3, h4, .editorial {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* ---------- STICKY HEADER ---------- */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(250, 249, 247, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid #eae5df;
+      transition: box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .header.scrolled {
+      background: rgba(250, 249, 247, 0.95);
+      box-shadow: 0 1px 20px rgba(0, 0, 0, 0.04);
+      border-bottom-color: #ddd7d0;
+    }
+
+    .header-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1.35rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      transition: padding 0.3s ease;
+    }
+
+    .header.scrolled .header-inner {
+      padding: 0.95rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-family: 'Playfair Display', serif;
+      color: #1e1e1e;
+      transition: font-size 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .header.scrolled .logo {
+      font-size: 1.2rem;
+    }
+
+    .logo span {
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+      color: #6b6258;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.2rem;
+      font-size: 0.9rem;
+      font-weight: 450;
+      color: #2c2c2c;
+      letter-spacing: 0.01em;
+      transition: gap 0.3s ease;
+    }
+
+    .nav a {
+      transition: color 0.2s, border-color 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 3px;
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      border-bottom-color: #1e1e1e;
+    }
+
+    .nav a.active {
+      border-bottom-color: #1e1e1e;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        display: none;
+      }
+      .header-inner {
+        padding: 1rem 1.25rem;
+      }
+      .header.scrolled .header-inner {
+        padding: 0.75rem 1.25rem;
+      }
+    }
+
+    /* Mobile menu button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      color: #1e1e1e;
+    }
+
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* ---------- BUTTONS & CHIPS ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid #d6d0c8;
+      color: #1e1e1e;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      text-decoration: none;
+      background-color: #ffffff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      border-color: #1e1e1e;
+      background-color: #1e1e1e;
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-dark {
+      background-color: #1e1e1e;
+      border-color: #1e1e1e;
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background-color: #333;
+      border-color: #333;
+    }
+
+    .btn-header {
+      padding: 0.6rem 1.4rem;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .btn-header {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    .chip {
+      background: white;
+      border: 1px solid #e2ddd7;
+      color: #3a3a3a;
+      padding: 0.45rem 1.25rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
+    }
+
+    .chip:hover,
+    .chip.active {
+      background: #1e1e1e;
+      border-color: #1e1e1e;
+      color: white;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 3rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      line-height: 1.1;
+      max-width: 1000px;
+      color: #1c1c1c;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: #54504b;
+      max-width: 650px;
+      font-weight: 350;
+      margin-top: -0.5rem;
+      line-height: 1.6;
+    }
+
+    .search-wrapper {
+      margin: 1rem 0 1.5rem;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #e3ddd6;
+      border-radius: 70px;
+      padding: 0.4rem 0.4rem 0.4rem 1.8rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+      max-width: 720px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .search-bar:focus-within {
+      border-color: #c5beb5;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+    }
+
+    .search-bar:hover {
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 0.9rem 0;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 350;
+      outline: none;
+      min-width: 0;
+    }
+
+    .search-bar input::placeholder {
+      color: #a8a099;
+      font-weight: 300;
+    }
+
+    .search-bar button {
+      background: #1e1e1e;
+      border: none;
+      border-radius: 50px;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-left: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .search-bar button:hover {
+      background: #3b3b3b;
+      transform: scale(1.03);
+    }
+
+    .search-bar button:active {
+      transform: scale(0.97);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.5rem;
+    }
+
+    .hero-image {
+      margin-top: 2.5rem;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #eae5df;
+      aspect-ratio: 16 / 7;
+      box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.08), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- SECTION GENERIC ---------- */
+    .section {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid #eee9e3;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.8rem;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: #6e6862;
+      font-size: 1rem;
+      font-weight: 350;
+      max-width: 400px;
+      margin-top: 0.4rem;
+    }
+
+    .section-link {
+      font-size: 0.85rem;
+      font-weight: 550;
+      color: #1e1e1e;
+      border-bottom: 1px solid #cbc3bb;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .section-link:hover {
+      border-bottom-color: #1e1e1e;
+    }
+
+    /* ---------- DESIGNER CARDS ---------- */
+    .designer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem 1.5rem;
+    }
+
+    .designer-card {
+      background: #ffffff;
+      border: 1px solid #eae4dd;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.2s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+    }
+
+    .designer-card:hover {
+      transform: translateY(-4px);
+      border-color: #d2cbc2;
+      box-shadow: 0 22px 30px -12px rgba(0, 0, 0, 0.08);
+    }
+
+    .designer-img {
+      aspect-ratio: 4 / 3;
+      background: #ddd8d2;
+      overflow: hidden;
+    }
+
+    .designer-img img {
+      transition: transform 0.5s ease;
+    }
+
+    .designer-card:hover .designer-img img {
+      transform: scale(1.02);
+    }
+
+    .designer-info {
+      padding: 1.4rem 1.4rem 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .designer-name {
+      font-size: 1.3rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .designer-location {
+      font-size: 0.8rem;
+      color: #8f877f;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0.25rem 0 0.75rem;
+      font-weight: 450;
+    }
+
+    .designer-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .designer-specialties span {
+      background: #f5f2ee;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #4e4a45;
+      letter-spacing: 0.01em;
+    }
+
+    .designer-desc {
+      font-size: 0.9rem;
+      color: #5f5a55;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      font-weight: 350;
+      flex: 1;
+    }
+
+    .designer-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee9e3;
+      padding-top: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .project-count {
+      font-size: 0.8rem;
+      color: #7b736b;
+      font-weight: 450;
+    }
+
+    .view-profile {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1e1e1e;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid #cbc3bb;
+      transition: border-color 0.2s;
+    }
+
+    .designer-card:hover .view-profile {
+      border-bottom-color: #1e1e1e;
+    }
+
+    /* ---------- STYLE GALLERY ---------- */
+    .style-gallery {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    .style-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1.3;
+      background: #ccc7c1;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .style-item:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 24px 28px -14px rgba(0, 0, 0, 0.2);
+    }
+
+    .style-item img {
+      transition: transform 0.5s;
+    }
+
+    .style-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .style-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+      color: white;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      padding: 2rem 1rem 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 1000px) {
+      .style-gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .style-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ---------- MASONRY PROJECTS ---------- */
+    .masonry {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 220px;
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #d2cdc7;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.3s;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+      grid-row: span 1;
+    }
+
+    .project-card.wide {
+      grid-column: span 2;
+    }
+
+    .project-card.tall {
+      grid-row: span 2;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card img {
+      transition: transform 0.6s;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.4rem 1.2rem;
+      color: white;
+      opacity: 1;
+    }
+
+    .project-name {
+      font-size: 1.25rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .project-meta {
+      font-size: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      margin-top: 0.5rem;
+      color: #ddd9d4;
+      letter-spacing: 0.01em;
+    }
+
+    .project-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    @media (max-width: 1000px) {
+      .masonry {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .masonry {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+      }
+      .project-card.wide,
+      .project-card.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+
+    /* ---------- HOW IT WORKS ---------- */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .step-item {
+      border-top: 1px solid #d9d2cb;
+      padding-top: 1.8rem;
+      transition: border-color 0.3s;
+    }
+
+    .step-item:hover {
+      border-top-color: #1e1e1e;
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #b7aea6;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .step-item:hover .step-num {
+      color: #1e1e1e;
+    }
+
+    .step-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .step-desc {
+      color: #65605a;
+      font-size: 0.95rem;
+      font-weight: 350;
+    }
+
+    @media (max-width: 700px) {
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* ---------- FOR DESIGNERS (DARK) ---------- */
+    .dark-section {
+      background: #141414;
+      color: white;
+      border-radius: 28px;
+      padding: 4rem 4rem;
+      margin: 3rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      border: 1px solid #2a2a2a;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .dark-section h2 {
+      font-size: 2.3rem;
+      letter-spacing: -0.02em;
+      max-width: 600px;
+      line-height: 1.2;
+      color: white;
+    }
+
+    .dark-section p {
+      color: #b9b2aa;
+      max-width: 480px;
+      font-weight: 350;
+      font-size: 1.05rem;
+      margin-top: 0.8rem;
+    }
+
+    .dark-section .btn {
+      background: transparent;
+      border-color: #4d4a46;
+      color: white;
+      padding: 0.9rem 2.4rem;
+      font-size: 0.9rem;
+    }
+
+    .dark-section .btn:hover {
+      background: white;
+      color: #141414;
+      border-color: white;
+    }
+
+    @media (max-width: 800px) {
+      .dark-section {
+        padding: 3rem 2rem;
+      }
+      .dark-section h2 {
+        font-size: 1.9rem;
+      }
+    }
+
+    /* ---------- COMMUNITY ---------- */
+    .community {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .community-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .community-text p {
+      color: #625c56;
+      max-width: 400px;
+      font-weight: 350;
+    }
+
+    .stats {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .stat-item {
+      text-align: left;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1;
+      color: #1e1e1e;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #7f7871;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    @media (max-width: 700px) {
+      .stats {
+        gap: 1.8rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5rem 0 3rem;
+      border-top: 1px solid #eae5df;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #4d4842;
+      gap: 1.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      font-weight: 450;
+    }
+
+    .footer-links a:hover {
+      color: #1e1e1e;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1.5rem;
+      color: #7b736b;
+    }
+
+    .footer-social a:hover {
+      color: #1e1e1e;
+    }
+
+    @media (max-width: 700px) {
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-links {
+        gap: 1.2rem;
+      }
+    }
+
+    /* ---------- MICRO INTERACTIONS / TRANSITIONS ---------- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.8s cubic-bezier(0.15, 0.9, 0.25, 1) forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+
+    /* ---------- UTILS ---------- */
+    .text-muted {
+      color: #7a736b;
+    }
+
+    .mt-2 { margin-top: 2rem; }
+
+    /* smooth page feel */
+    ::selection {
+      background: #d9d2cb;
+      color: #141414;
+    }
+
+    /* back to top */
+    .back-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #1e1e1e;
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-top:hover {
+      transform: translateY(-3px);
+      background: #333;
+    }
+
+    @media (max-width: 600px) {
+      .back-top {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">interiordesigners<span>.lk</span></a>
+      <nav class="nav">
+        <a href="#" class="active">Discover</a>
+        <a href="#">Designers</a>
+        <a href="#">Projects</a>
+        <a href="#">Styles</a>
+        <a href="#">About</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="#" class="btn btn-dark btn-header">Join as a Designer</a>
+        <button class="menu-toggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <h1 class="fade-up">Find the right interior designer for your space.</h1>
+        <p class="hero-sub fade-up delay-1">Discover Sri Lanka’s interior designers, explore their work, and find a style that feels like you.</p>
+      </div>
+
+      <div class="search-wrapper fade-up delay-2">
+        <div class="search-bar">
+          <input type="text" placeholder="Search designers, styles, locations…" aria-label="Search">
+          <button aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-chips fade-up delay-3">
+        <span class="chip active">All</span>
+        <span class="chip">Interior Design</span>
+        <span class="chip">Architecture</span>
+        <span class="chip">Residential</span>
+        <span class="chip">Commercial</span>
+        <span class="chip">Furniture</span>
+      </div>
+
+      <div class="hero-image fade-up delay-2">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2070&auto=format&fit=crop" alt="Luxury Sri Lankan interior with modern tropical feel" loading="eager">
+      </div>
+    </section>
+
+    <!-- FEATURED DESIGNERS -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Discover Designers</h2>
+          <p class="section-sub">Explore curated interior designers and creative studios across Sri Lanka.</p>
+        </div>
+        <a href="#" class="section-link">View all designers →</a>
+      </div>
+
+      <div class="designer-grid">
+        <!-- Designer 1 -->
+        <div class="designer-card">
+          <div class="designer-img">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1932&auto=format&fit=crop" alt="Studio Forma portfolio">
+          </div>
+          <div class="designer-info">
+            <div class="designer-name">Studio Forma</div>
+            <div class="designer-location">Colombo 07</div>
+            <div class="designer-specialties"><span>Residential</span><span>Modern</span></div>
+            <p class="designer-desc">Minimalist luxury with a focus on natural light and local materials.</p>
+            <div class="designer-meta">
+              <span class="project-count">24 projects</span>
+              <span class="view-profile">View Profile →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Designer 2 -->
+        <div class="designer-card">
+          <div class="designer-img">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="Linea Interiors portfolio">
+          </div>
+          <div class="designer-info">
+            <div class="designer-name">Linea Interiors</div>
+            <div class="designer-location">Battaramulla</div>
+            <div class="designer-specialties"><span>Commercial</span><span>Minimal</span></div>
+            <p class="designer-desc">Tailored interiors for hospitality and retail, blending warmth and sophistication.</p>
+            <div class="designer-meta">
+              <span class="project-count">31 projects</span>
+              <span class="view-profile">View Profile →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Designer 3 -->
+        <div class="designer-card">
+          <div class="designer-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Habitat Studio portfolio">
+          </div>
+          <div class="designer-info">
+            <div class="designer-name">Habitat Studio</div>
+            <div class="designer-location">Galle</div>
+            <div class="designer-specialties"><span>Tropical</span><span>Residential</span></div>
+            <p class="designer-desc">Contemporary tropical design, deeply rooted in Sri Lankan craft and climate.</p>
+            <div class="designer-meta">
+              <span class="project-count">19 projects</span>
+              <span class="view-profile">View Profile →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Designer 4 -->
+        <div class="designer-card">
+          <div class="designer-img">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Arc & Space portfolio">
+          </div>
+          <div class="designer-info">
+            <div class="designer-name">Arc & Space</div>
+            <div class="designer-location">Kandy</div>
+            <div class="designer-specialties"><span>Architecture</span><span>Luxury</span></div>
+            <p class="designer-desc">Architectural interiors that blur the line between inside and out.</p>
+            <div class="designer-meta">
+              <span class="project-count">42 projects</span>
+              <span class="view-profile">View Profile →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Designer 5 -->
+        <div class="designer-card">
+          <div class="designer-img">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2000&auto=format&fit=crop" alt="Luma Design portfolio">
+          </div>
+          <div class="designer-info">
+            <div class="designer-name">Luma Design</div>
+            <div class="designer-location">Negombo</div>
+            <div class="designer-specialties"><span>Furniture</span><span>Contemporary</span></div>
+            <p class="designer-desc">Bespoke furniture and interior styling with an emphasis on tactile finishes.</p>
+            <div class="designer-meta">
+              <span class="project-count">17 projects</span>
+              <span class="view-profile">View Profile →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE BY STYLE -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Explore by style</h2>
+          <p class="section-sub">Find designers who speak your visual language.</p>
+        </div>
+        <a href="#" class="section-link">Browse all styles →</a>
+      </div>
+
+      <div class="style-gallery">
+        <div class="style-item"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1974&auto=format&fit=crop" alt="Modern style"><div class="style-label">Modern</div></div>
+        <div class="style-item"><img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=2070&auto=format&fit=crop" alt="Minimal style"><div class="style-label">Minimal</div></div>
+        <div class="style-item"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1974&auto=format&fit=crop" alt="Luxury style"><div class="style-label">Luxury</div></div>
+        <div class="style-item"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop" alt="Tropical style"><div class="style-label">Tropical</div></div>
+        <div class="style-item"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" alt="Contemporary style"><div class="style-label">Contemporary</div></div>
+        <div class="style-item"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2000&auto=format&fit=crop" alt="Traditional style"><div class="style-label">Traditional</div></div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS (MASONRY) -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Spaces worth exploring</h2>
+          <p class="section-sub">A curated selection of residential and commercial projects.</p>
+        </div>
+        <a href="#" class="section-link">View all projects →</a>
+      </div>
+
+      <div class="masonry">
+        <!-- Project 1 large wide tall -->
+        <div class="project-card wide tall">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Galle beach house">
+          <div class="project-overlay">
+            <div class="project-name">Galle Beach House</div>
+            <div class="project-meta"><span>Galle</span><span>Habitat Studio</span><span>Tropical</span></div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1974&auto=format&fit=crop" alt="Colombo penthouse">
+          <div class="project-overlay">
+            <div class="project-name">Colombo Penthouse</div>
+            <div class="project-meta"><span>Colombo</span><span>Studio Forma</span><span>Modern</span></div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card tall">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1974&auto=format&fit=crop" alt="Kandy hillside retreat">
+          <div class="project-overlay">
+            <div class="project-name">Kandy Hillside Retreat</div>
+            <div class="project-meta"><span>Kandy</span><span>Arc & Space</span><span>Luxury</span></div>
+          </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="project-card wide">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" alt="Battaramulla office">
+          <div class="project-overlay">
+            <div class="project-name">Battaramulla Office</div>
+            <div class="project-meta"><span>Battaramulla</span><span>Linea Interiors</span><span>Commercial</span></div>
+          </div>
+        </div>
+        <!-- Project 5 -->
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2000&auto=format&fit=crop" alt="Negombo villa">
+          <div class="project-overlay">
+            <div class="project-name">Negombo Villa</div>
+            <div class="project-meta"><span>Negombo</span><span>Luma Design</span><span>Contemporary</span></div>
+          </div>
+        </div>
+        <!-- Project 6 -->
+        <div class="project-card">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1932&auto=format&fit=crop" alt="Colombo apartment">
+          <div class="project-overlay">
+            <div class="project-name">Colombo Apartment</div>
+            <div class="project-meta"><span>Colombo</span><span>Studio Forma</span><span>Minimal</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">How it works</h2>
+      </div>
+      <div class="steps">
+        <div class="step-item">
+          <div class="step-num">01</div>
+          <div class="step-title">Explore</div>
+          <p class="step-desc">Browse designers and discover their work.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">02</div>
+          <div class="step-title">Compare</div>
+          <p class="step-desc">Explore portfolios, styles, locations and specialties.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">03</div>
+          <div class="step-title">Connect</div>
+          <p class="step-desc">Contact the designer directly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR DESIGNERS (DARK) -->
+    <section class="dark-section">
+      <div>
+        <h2>Your next client could be looking for you.</h2>
+        <p>Create your profile, showcase your projects and make it easier for people to discover your work.</p>
+      </div>
+      <a href="#" class="btn">Join the Community</a>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="section" style="border-bottom: none;">
+      <div class="community">
+        <div class="community-text">
+          <h2>More than a directory.</h2>
+          <p>A growing community for Sri Lanka’s interior design industry.</p>
+          <a href="#" class="btn" style="margin-top: 1.8rem;">Explore the Community</a>
+        </div>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Designers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Locations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="logo" style="font-size: 1.2rem;">interiordesigners<span>.lk</span></div>
+      <div class="footer-links">
+        <a href="#">Discover</a>
+        <a href="#">Designers</a>
+        <a href="#">Projects</a>
+        <a href="#">Styles</a>
+        <a href="#">Join as a Designer</a>
+        <a href="#">About</a>
+      </div>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- micro-interactions script -->
+  <script>
+    (function() {
+      // ---- Sticky header scroll effect ----
+      const header = document.getElementById('header');
+      const backTop = document.getElementById('backTop');
+
+      function onScroll() {
+        const y = window.scrollY;
+        if (y > 30) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        if (y > 500) {
+          backTop.classList.add('visible');
+        } else {
+          backTop.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); // run once on load
+
+      backTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // ---- Filter chips active toggle ----
+      const chips = document.querySelectorAll('.chip');
+      chips.forEach(chip => {
+        chip.addEventListener('click', function() {
+          chips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+
+      // ---- Smooth page transitions for demo links ----
+      document.querySelectorAll('a[href="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          link.style.opacity = '0.7';
+          setTimeout(() => link.style.opacity = '1', 120);
+        });
+      });
+
+      // ---- Card click feedback ----
+      document.querySelectorAll('.designer-card, .project-card, .style-item').forEach(card => {
+        card.addEventListener('click', function() {
+          this.style.transition = 'transform 0.1s, box-shadow 0.1s';
+          this.style.transform = 'scale(0.995)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 120);
+        });
+      });
+
+      // ---- Nav active link highlight on scroll (simple demo) ----
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav a');
+
+      function highlightNav() {
+        let current = '';
+        const scrollPos = window.scrollY + 140;
+        sections.forEach(section => {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            current = section.getAttribute('id') || '';
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.textContent.toLowerCase() === current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', highlightNav, { passive: true });
+      highlightNav();
+
+      // ensure at least "Discover" is active initially
+      if (!document.querySelector('.nav a.active')) {
+        document.querySelector('.nav a')?.classList.add('active');
+      }
+    })();
+  </script>
+</body>
+</html>
